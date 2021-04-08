@@ -5,24 +5,10 @@ const calculate = (arr) => {
   })
 
   for (let i = 0; i < arr.length; i++) {
-    switch (i) {
-      case '+':
-        i++
-        break
-      case '-':
-        i++
-        break
-      case '*':
-        i++
-        break
-      case '/':
-        i++
-        break
-      case Number:
-        i++
-        break
-      default:
-        arr.splice(arr[i], 1)
+    let operatorArr = ['*', '/', '+', '-']
+
+    if (operatorArr.indexOf(arr[i]) !== true && isNaN(arr[i]) === true) {
+      arr.splice(i, 1)
     }
   }
 
@@ -30,6 +16,6 @@ const calculate = (arr) => {
 }
 
 // eslint-disable-next-line no-console
-console.log(calculate([6, '/', '', 'foo', 2]))
+console.log(calculate(['6', '*', '', 2]))
 
 module.exports = calculate
