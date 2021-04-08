@@ -7,15 +7,15 @@ const calculate = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     let operatorArr = ['*', '/', '+', '-']
 
-    if (operatorArr.indexOf(arr[i]) !== true && isNaN(arr[i]) === true) {
-      arr.splice(i, 1)
+    if (operatorArr.includes(arr[i]) === false && isNaN(arr[i]) === true) {
+      calcArr.splice(i, 1)
     }
   }
 
-  return eval(calcArr.join(''))
+  return eval(calcArr.join(' '))
 }
 
 // eslint-disable-next-line no-console
-console.log(calculate(['6', '*', '', 2]))
+console.log(calculate(['6', '*', 'foo', 2]))
 
 module.exports = calculate
