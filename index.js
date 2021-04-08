@@ -1,15 +1,35 @@
 /* eslint-disable eqeqeq */
-const calculationSteps = (arr) => {
+const calculate = (arr) => {
   let calcArr = arr.filter(inputs => {
-    return inputs != null && inputs != ''
+    return inputs != undefined && inputs != ''
   })
 
-  let formula = calcArr.join(' ')
+  for (let i = 0; i < arr.length; i++) {
+    switch (i) {
+      case '+':
+        i++
+        break
+      case '-':
+        i++
+        break
+      case '*':
+        i++
+        break
+      case '/':
+        i++
+        break
+      case Number:
+        i++
+        break
+      default:
+        arr.splice(arr[i], 1)
+    }
+  }
 
-  return formula
+  return eval(calcArr.join(''))
 }
 
 // eslint-disable-next-line no-console
-console.log(calculationSteps([6, '/', '', 2]))
+console.log(calculate([6, '/', '', 'foo', 2]))
 
-module.exports = calculationSteps
+module.exports = calculate
