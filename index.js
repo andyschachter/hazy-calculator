@@ -23,8 +23,4 @@ const calculate = (arr) => {
   } else return NaN
 }
 
-
-// eslint-disable-next-line no-sparse-arrays
-console.log(calculate(['6', '', '*', 'bar', , null]))
-
 module.exports = calculate
